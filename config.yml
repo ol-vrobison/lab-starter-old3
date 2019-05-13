@@ -5,7 +5,7 @@ template:
   name: commenting-on-issues
   repo: commenting-on-issues-template
 steps:
-  - title: Comment on an issue
+   title: Comment on an issue
     event: issue_comment.created
     actions:
       - type: createIssue
