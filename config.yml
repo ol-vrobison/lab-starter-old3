@@ -5,12 +5,11 @@ template:
   name: commenting-on-issues
   repo: commenting-on-issues-template
 steps:
-- title: Comment on an issue
+  - title: Comment on an issue
     event: issue_comment.created
     actions:
       - type: createIssue
         title: New Issue
-        description: The Step descripton   # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
         body: an-issue.md
         # Store the response for this new issue by assigning an action_id
         action_id: new_issue
