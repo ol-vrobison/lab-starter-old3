@@ -1,26 +1,40 @@
-title: Commenting on Issues
-tagline: Learn how to comment on an issue
-description: Point users to a newly created issue and closes the original issue
+# Metadata for your course
+
+title: OL Course
+tagline: OL Steps to PR
+description: Lets Go from 0 to PR 1 in less than 10 minutes with this course.
+
+# Repository setup
+# The following section template information for the repository
+# This will be used when the repository is crated for each individual learner
+
 template:
-  name: commenting-on-issues
-  repo: commenting-on-issues-template
+  name: vcr-ol-lab-repo
+  repo: lab-starter-template
+
+# `before` block
+# Actions to take place after the learner registers, but before they start interacting with their repo
+
+before:
+- type: createIssue
+  title: Welcome
+  body: welcome-text.md
+
+# Steps for the course
+# A list of steps that take the learner through the course
+# Create one step for each action that a learner will complete
+
 steps:
-  - title: Comment on an issue
-    event: issue_comment.created
-    actions:
-      - type: createIssue
-        title: New Issue
-        body: an-issue.md
-        # Store the response for this new issue by assigning an action_id
-        action_id: new_issue
-
-        # Close the issue the user just commented on
-      - type: closeIssue
-
-        # Respond in the issue the user just commented on
-      - type: respond
-        with: a-response.md
-        # Include a `data` object to provide some template variables
-        data:
-          # Reference the response of the `new_issue` action
-          nextIssueUrl: '%actions.new_issue.data.html_url%'
+- title:          # the title of the step, shown to the learner in the course progress page
+  description:    # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
+  event:          # a list of the actions that will occur when the step is triggered by an event
+  actions:
+  - type:         # the type of action, full list at https://lab.github.com/docs/actions
+                  # some actions require additional options, those should appear below `type:`
+                  # you can execute multiple actions in the `before` block
+                  #
+  # - type:
+  #   option:
+  #
+  # - type:
+  #   option:
